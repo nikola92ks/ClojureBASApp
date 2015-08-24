@@ -1,0 +1,62 @@
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="/linije">Početna</a></li>
+        <li role="presentation"><a href="/mesta/new">Rad sa mestima</a></li>
+        <li role="presentation"><a href="/prevoznici/new">Dodavanje prevoznika</a></li>
+        <li role="presentation"><a href="/prevoznici">Rad sa prevoznicima</a></li>
+        <li role="presentation"><a href="/linije/new">Dodavanje linija</a></li>
+        <li role="presentation"><a href="/linije/edit">Rad sa linijama</a></li>
+    </ul>
+    <div class="col-md-4">
+        <h1>Dodavanje linija:</h1>
+        <form action="/linije/create" method="post">
+            <div class="form-group">
+                <label for="polaziste">Polaziste:</label>
+                <select class="form-control" name="polaziste" id="polaziste">
+                    {{#mesta}}
+                        <option value="{{id}}">{{naziv}}</option>
+                    {{/mesta}}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="odrediste">Odrediste:</label>
+                <select class="form-control" name="odrediste" id="odrediste">
+                    {{#mesta}}
+                        <option value="{{id}}">{{naziv}}</option>
+                    {{/mesta}}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="prevoznik_id">Prevoznik:</label>
+                <select class="form-control" name="prevoznik_id" id="prevoznik_id">
+                    {{#prevoznici}}
+                        <option value="{{id}}">{{naziv_prevoznika}}</option>
+                    {{/prevoznici}}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="datum">Datum:</label>
+                <input type="date" name="datum"/>
+            </div>
+            <div class="form-group">
+                <label for="vreme">Vreme:</label>
+                <input type="time" name="vreme"/>
+            </div>
+            <button type="submit" class="btn btn-default">Sacuvaj</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

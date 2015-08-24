@@ -1,0 +1,50 @@
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <title>Linije</title>
+</head>
+<body>
+
+<div class="container">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="/linije">Početna</a></li>
+        <li role="presentation"><a href="/mesta/new">Rad sa mestima</a></li>
+        <li role="presentation"><a href="/prevoznici/new">Dodavanje prevoznika</a></li>
+        <li role="presentation"><a href="/prevoznici">Rad sa prevoznicima</a></li>
+        <li role="presentation"><a href="/linije/new">Dodavanje linija</a></li>
+        <li role="presentation"><a href="/linije/edit">Rad sa linijama</a></li>
+    </ul>
+    <h1>Linije</h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>Polazna stanica:</th>
+            <th>Odredisna stanica:</th>
+            <th>Prevoznik:</th>
+            <th>Datum:</th>
+            <th>Vreme:</th>
+            <th>Izmeni:</th>
+            <th>Obrisi:</th>
+        </tr>
+        {{#linije}}
+            <tr>
+                <td>{{polaziste}}</td>
+                <td>{{odrediste}}</td>
+                <td>{{naziv_prevoznika}}</td>
+                <td>{{datum}}</td>
+                <td>{{vreme}}</td>
+                <td><a href="/linije/{{id}}/edit">Izmeni</a></td>
+                <td><a href="/linije/{{id}}/delete">Obrisi</a></td>
+            </tr>
+        {{/linije}}
+    </table>
+</div>
+</body>
+</html>

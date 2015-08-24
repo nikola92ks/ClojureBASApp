@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <title>Prevoznici</title>
+    </head>
+    <body>
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li role="presentation"><a href="/linije">Početna</a></li>
+                <li role="presentation"><a href="/mesta/new">Rad sa mestima</a></li>
+                <li role="presentation"><a href="/prevoznici/new">Dodavanje prevoznika</a></li>
+                <li role="presentation"><a href="/prevoznici">Rad sa prevoznicima</a></li>
+                <li role="presentation"><a href="/linije/new">Dodavanje linija</a></li>
+                <li role="presentation"><a href="/linije/edit">Rad sa linijama</a></li>
+            </ul>
+            <h1>Prevoznici</h1>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Naziv prevoznika:</th>
+                    <th>Postanski broj:</th>
+                    <th>Mesto:</th>
+                    <th>Obrisi:</th>
+                    <th>Izmeni:</th>
+                </tr>
+            {{#prevoznici}}
+                <tr>
+                    <td>{{naziv_prevoznika}}</td>
+                    <td>{{sediste_prevoznika}}</td>
+                    <td>{{naziv}}</td>
+                    <td><a href="/prevoznici/{{id}}/delete">Obrisi</a></td>
+                    <td><a href="/prevoznici/{{id}}/edit">Izmeni</a></td>
+                </tr>
+            {{/prevoznici}}
+            </table>
+        </div>
+    </body>
+</html>

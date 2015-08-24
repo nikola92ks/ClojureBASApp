@@ -1,0 +1,42 @@
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="/linije">Početna</a></li>
+        <li role="presentation"><a href="/mesta/new">Rad sa mestima</a></li>
+        <li role="presentation"><a href="/prevoznici/new">Dodavanje prevoznika</a></li>
+        <li role="presentation"><a href="/prevoznici">Rad sa prevoznicima</a></li>
+        <li role="presentation"><a href="/linije/new">Dodavanje linija</a></li>
+        <li role="presentation"><a href="/linije/edit">Rad sa linijama</a></li>
+    </ul>
+    <div class="col-md-6">
+        <h1>Dodavanje prevoznika:</h1>
+        <form action="/prevoznici/create" method="post">
+            <div class="form-group">
+                <label for="naziv_prevoznika">Naziv prevoznika:</label>
+                <input type="text" name="naziv_prevoznika" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="sediste_prevoznika">Sediste prevoznika:</label>
+                <select class="form-control" name="sediste_prevoznika" id="sediste_prevoznika">
+                    {{#mesta}}
+                    <option value="{{id}}">{{naziv}}</option>
+                    {{/mesta}}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-default">Sacuvaj</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
